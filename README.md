@@ -33,8 +33,8 @@ It allows users to add items, assign quantities, and visually monitor stock leve
 - Material Symbols icons integration
 
 ## Tech Stack
-- **HTML5** – Structure and layout
-- **CSS3** – Styling, responsive design, and animations
+- **HTML** – Structure and layout
+- **CSS** – Styling, responsive design, and animations
 - **JavaScript (ES6)** – Application logic and UI interactions
 - **Google Fonts / Material Symbols** – Typography and icons
 
@@ -152,3 +152,8 @@ const showSyncNotification = () => {
     }, 1500);
 };
 ```
+## Group Members
+    - Agravante, John Patrick E.
+    - Dela Vega, Kristine Jane
+    - Labordo, Christopher John O.
+    - Roman, Francis
