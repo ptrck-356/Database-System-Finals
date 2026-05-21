@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tambak HQ - Dashboard</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <link rel="shortcut icon" href="tambak logo.svg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar collapsed" id="sidebar">
+      <button id="sidebar-toggle-btn" class="sidebar-toggle-btn" aria-label="Toggle Sidebar">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+
+      <div class="sidebar-logo">
+        <div class="logo-icon-container">
+          <img src="tambak logo.svg" alt="Tambak Logo" width="38">
+        </div>
+        <div class="logo-text">
+          <h2>Tambak HQ</h2>
+          <p>Where Chaos Gets Sorted</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-group">
+          <div class="nav-group-title">Workspace</div>
+
+          <a class="nav-item active" href="#" data-tooltip="Dashboard">
+            <div class="nav-icon-container">
+              <span class="material-symbols-outlined">dashboard</span>
+            </div>
+            <span class="nav-label">Dashboard</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main -->
+    <div class="main-content">
+
+      <!-- Header -->
+      <header class="header-bar">
+        <div class="header-actions">
+          <button id="mobile-menu-toggle" class="icon-btn menu-toggle">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+
+          <div class="header-title">
+            <h1>Inventory Control</h1>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <span id="sync-text" class="sync-text hidden">Syncing...</span>
+
+          <button id="btn-sync" class="icon-btn" title="Sync">
+            <span class="material-symbols-outlined">sync</span>
+          </button>
+
+          <button id="btn-theme-toggle" class="icon-btn" title="Theme">
+            <span class="material-symbols-outlined">dark_mode</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main class="dashboard-canvas">
+        <div class="canvas-container">
+
+          <!-- Form -->
+          <section class="form-panel glass-panel">
+            <div class="form-header">
+              <h3 id="form-panel-header">Add Item</h3>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="item_name">Item Name</label>
+                <input id="item_name" class="form-input" type="text" placeholder="Enter Item Name"/>
+              </div>
+
+              <div class="form-group qty">
+                <label for="item_qty">Qty.</label>
+                <input id="item_qty" class="form-input" type="number" min="0" placeholder="0"/>
+              </div>
+
+              <button id="btn-add-item" class="btn-primary">
+                <span class="material-symbols-outlined">add</span>
+                Add Item
+              </button>
+
+              <button id="btn-cancel-edit" class="btn-secondary hidden">
+                Cancel
+              </button>
+            </div>
+          </section>
+
+          <hr class="divider" />
+
+          <!-- Inventory -->
+          <section class="inventory-section">
+            <div class="section-title-bar">
+              <h2>Inventory</h2>
+
+              <div class="header-actions">
+                <div id="filter-container" class="filter-bar">
+                  <button class="filter-pill active">All</button>
+                </div>
+              </div>
+            </div>
+
+            <div id="inventory-grid" class="inventory-grid"></div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+  </div>
+  <div id="toast-container" class="toast-container hide">
+    Item Added Successfully
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
