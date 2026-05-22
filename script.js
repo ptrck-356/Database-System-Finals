@@ -42,9 +42,7 @@ const showSyncNotification = () => {
     syncNotification.classList.remove("hidden");
     syncNotification.classList.add("show");
 
-    // Force animation restart by triggering a DOM reflow
     syncIcon.style.animation = "none";
-    void syncIcon.offsetWidth; 
     syncIcon.style.animation = spinAnimation;
 
     syncNotification.textContent = "Syncing to Database...";
@@ -60,13 +58,14 @@ const showSyncNotification = () => {
     }, 1500); 
 };
 
+
 const renderItems = () => {
     if (!inventoryGrid) return;
 
     // Map array to HTML string for better rendering performance
     inventoryGrid.innerHTML = items.map(item => {
         const isOutOfStock = item.quantity <= 0;
-        const isLowStock = item.quantity > 0 && item.quantity <= 10;
+        const isLowStock = item.quantity > 0 && item.quantity < 10;
 
         const statusClass = isOutOfStock ? "out-of-stock" : isLowStock ? "low-stock" : "in-stock";
         const statusText = isOutOfStock ? "Out of Stock" : isLowStock ? "Low Stock" : "In Stock";
