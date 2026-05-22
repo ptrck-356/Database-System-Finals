@@ -4,7 +4,7 @@ const sidebar = document.getElementById("sidebar");
 const sidebarToggleBtn = document.getElementById("sidebar-toggle-btn");
 const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
 const sidebarOverlay = document.getElementById("sidebar-overlay");
-const navItems = document.querySelectorAll(".nav-item");
+
 
 // Inventory Elements
 const itemNameInput = document.getElementById("item_name");
@@ -17,7 +17,6 @@ const syncNotification = document.getElementById("sync-text");
 const syncIcon = document.getElementById("btn-sync");
 const addNotif = document.getElementById("toast-container")
 
-// --- State ---
 const items = [];
 const spinAnimation = "spin 1s infinite linear";
 
@@ -28,45 +27,15 @@ themeBtn.addEventListener("click", () => {
     bodyElement.classList.toggle("light")
 })
 
-// --- 1. Desktop Sidebar Toggle ---
+// --- Desktop Sidebar Toggle ---
 if (sidebarToggleBtn && sidebar) {
     sidebarToggleBtn.addEventListener("click", () => {
         sidebar.classList.toggle("collapsed");
     });
 }
 
-// --- 2. Mobile Responsive Sidebar Toggles ---
-if (mobileMenuToggle && sidebar && sidebarOverlay) {
-    const closeMobileSidebar = () => {
-        sidebar.classList.remove("open");
-        sidebarOverlay.classList.remove("show");
-    };
 
-    mobileMenuToggle.addEventListener("click", () => {
-        sidebar.classList.add("open");
-        sidebarOverlay.classList.add("show");
-    });
-
-    sidebarOverlay.addEventListener("click", closeMobileSidebar);
-}
-
-// --- 3. Navigation Item Active State ---
-navItems.forEach(item => {
-    item.addEventListener("click", (e) => {
-        if (item.getAttribute("href") === "#") {
-            e.preventDefault();
-        }
-
-        navItems.forEach(nav => nav.classList.remove("active"));
-        item.classList.add("active");
-
-        // Close mobile sidebar when a nav item is clicked
-        if (sidebar) sidebar.classList.remove("open");
-        if (sidebarOverlay) sidebarOverlay.classList.remove("show");
-    });
-});
-
-// --- 4. Helper Functions ---
+// --- Helper Functions ---
 const showSyncNotification = () => {
     if (!syncNotification || !syncIcon) return;
 
